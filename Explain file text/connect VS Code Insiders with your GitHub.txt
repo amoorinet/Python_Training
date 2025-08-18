@@ -1,0 +1,112 @@
+0) Prereqs (one time)
+
+Install Git → run in terminal to check:
+git --version
+
+Sign in GitHub in VS Code Insiders
+Bottom-left Accounts → Sign in to GitHub → Authorize.
+
+1) Clone your repo (recommended path)
+
+VS Code Insiders → Ctrl+Shift+P → Git: Clone
+
+Paste your repo URL (use the one ending with .git):
+
+https://github.com/amoorinet/trraning.git
+
+
+Pick a local folder → when prompted, choose Open (so this window is focused on the repo).
+
+2) Set your Git identity (authorship on commits)
+
+(Do once on your machine; use your preferred email—real or GitHub noreply)
+
+git config --global user.name "amoorinet"
+git config --global user.email "your_email@example.com"
+
+
+Tip: If you prefer privacy, set your GitHub noreply email from GitHub Settings → Emails, then use it here.
+
+3) Bring your existing files into the repo
+
+In File Explorer, copy your Python files from your current folder
+(e.g. C:\Python\BARAA\Python_Barra\python scripts\...)
+
+Paste them inside the cloned trraning folder.
+
+4) Add a Python .gitignore (so venv, cache, etc. don’t get committed)
+
+Create a file named .gitignore in the repo with:
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv
+venv/
+ENV/
+env/
+*.egg-info/
+dist/
+build/
+
+# VS Code
+.vscode/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+5) First commit & push (GUI in VS Code)
+
+Open Source Control (branch icon).
+
+Click + at the top to Stage All (you don’t need to stage files one by one).
+
+Message: first commit: add training scripts → Commit (✓).
+
+Click Push (↑).
+
+This sends all staged+committed changes to GitHub in one go.
+
+6) Verify
+
+Open your repo page in the browser:
+https://github.com/amoorinet/trraning
+You should see your files.
+
+Daily workflow (cheat sheet)
+
+Pull latest: Source Control … menu → Pull (or git pull)
+
+Stage all: click + at top (or git add .)
+
+Commit: write a message → ✓ (or git commit -m "message")
+
+Push: ↑ (or git push)
+
+You can stage many files at once and commit once with a single message—no need to repeat step 4 per file.
+
+Alternative: connect an existing local folder to GitHub (if you didn’t clone)
+
+If you already have a folder that should become the repo:
+
+cd "C:\Path\To\Your\Existing\Folder"
+git init
+git add .
+git commit -m "initial commit"
+git branch -M main
+git remote add origin https://github.com/amoorinet/trraning.git
+git push -u origin main
+
+
+Then open that folder in VS Code Insiders and continue normally.
+
+Virtual environment note (so your repo stays clean)
+
+Create/activate venv inside the repo if you like:
+python -m venv venv → .\venv\Scripts\activate
+
+Keep venv/ out of Git (the .gitignore above already excludes it).

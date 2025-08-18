@@ -1,0 +1,80 @@
+
+📑 Pylint Warnings Cheat Sheet (Beginner-Friendly)
+Warning	What it Means	Simple Fix
+C0114: missing-module-docstring	No description at the top of your script	Add """This script does XYZ.""" at the very top
+C0304: missing-final-newline	Your file ends without a blank line	Just press Enter at the end once
+C0301: line-too-long (xxx/100)	A line is longer than 100 characters	Split it into multiple lines using \ or parentheses
+C0103: invalid-name	Variable, function, or file doesn’t follow Python naming style (snake_case)	Rename: Class_Object_Method.py → class_object_method.py
+W0611: unused-import	You imported something but never used it	Delete the unused import
+W0612: unused-variable	You created a variable but never used it	Remove or actually use it
+R1705: unnecessary-else	You used an else after return	Remove else because code won’t reach it anyway
+C0411: wrong-import-order	Imports are not in the standard order	Group: built-ins → third-party → local imports
+
+
+Great idea 👍 — I’ll connect each naming convention from the cheat sheet with the exact Pylint error codes you might see if you break the rule. That way you’ll know instantly what to fix.
+
+🐍 snake_case (functions, variables, files)
+
+Rule: Must be lowercase with underscores.
+
+Pylint Error if broken:
+
+C0103: invalid-name → if you use MyFunction instead of my_function
+
+C0103: invalid-name → if file is named Class_Object_Method.py instead of class_object_method.py
+
+✅ Fix: rename to snake_case.
+
+🐪 CamelCase (PascalCase in Python) (classes, exceptions)
+
+Rule: Each word starts with uppercase, no underscores.
+
+Pylint Error if broken:
+
+C0103: invalid-name → if you write villa_progress instead of VillaProgress for a class.
+
+✅ Fix: rename class to CamelCase.
+
+🔠 ALL_CAPS (constants)
+
+Rule: Constants should be uppercase with underscores.
+
+Pylint Error if broken:
+
+C0103: invalid-name → if you write pi = 3.14 instead of PI = 3.14.
+
+✅ Fix: rename constant to ALL_CAPS.
+
+📜 Docstrings
+
+Rule: Every module, class, and function should start with a docstring.
+
+Pylint Error if broken:
+
+C0114: missing-module-docstring → no description at top of file.
+
+C0115: missing-class-docstring → no description inside a class.
+
+C0116: missing-function-docstring → no description inside a function.
+
+✅ Fix: add a triple-quoted string """This does XYZ""".
+
+🔚 Final newline
+
+Rule: File should end with one blank line.
+
+Pylint Error if broken:
+
+C0304: missing-final-newline.
+
+✅ Fix: add a newline at the very end of file.
+
+🚦 Quick Visual Table
+Item	Correct Style	Pylint Error if Broken	Example Fix
+Variable	villa_count	C0103: invalid-name	rename to snake_case
+Function	get_total()	C0103: invalid-name	rename to snake_case
+File name	data_utils.py	C0103: invalid-name	rename to snake_case
+Class	VillaProgress	C0103: invalid-name	rename to CamelCase
+Constant	MAX_VILLAS	C0103: invalid-name	rename to ALL_CAPS
+Module docs	"""Info..."""	C0114/15/16: missing-…	add docstring
+End of file	newline	C0304: missing-final-newline	add blank lin
