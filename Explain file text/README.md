@@ -1,16 +1,36 @@
-# Python Training Notes
+# Python Training – Data With Baraa
 
-This repository contains my personal training exercises, notes, and code while learning Python.
+This repository contains my **Python training notes, exercises, and practice code**.  
+The learning material is based on **Data With Baraa** tutorials on YouTube.
 
-## Reference & Attribution
-These materials are based on the excellent **Data With Baraa** YouTube tutorials and learning content.  
-Original creator: 
-1-[Data With Baraa](https://www.youtube.com/watch?v=GRNI9T9R8gQ&list=PLNcg_FV9n7qZGfFl2ANI_zISzNp257Lwn)
-2- [ ]
+---
 
-All rights to original teaching content belong to 
-1- **Data With Baraa**.
-2- **.....**  
-This repo is only for personal learning and practice, not for redistribution and even publinshing is part for training.
-## Updating 
-The content and arrangement in this repository will change depending on the experience over time Curve
+## 📚 Contents
+- **Text Notes**: Explanations of Python concepts (functions, variables, strings, pylint, etc.)
+- **Python Scripts**: Example `.py` files created during training
+- **Excel Files**: Practice sheets (`.xlsx`) to support exercises
+- **Diagrams/Images**: Mapping of data types and string functions
+
+---
+
+## 🙏 Attribution & References
+- Original tutorials by: [Data With Baraa YouTube Channel](https://www.youtube.com/@DataWithBaraa)  
+- All educational rights belong to **Data With Baraa**.  
+- This repository is only for **personal educational and practice use**.  
+
+If you find this useful, please support the original creator by subscribing to their channel.
+
+---
+
+## 🛠️ Tech Notes
+- Python environment managed with **venv**
+- GitHub repository initialized via **VS Code Insiders**
+- `.gitignore` includes Python, VS Code, and OS junk exclusions
+
+---
+
+## ⚖️ License
+This repo is **not for redistribution**.  
+It is intended only as **personal study notes and exercises**.  
+Please respect the intellectual property of the original author.
+
