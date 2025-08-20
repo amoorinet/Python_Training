@@ -1,0 +1,447 @@
+GitHub Workflow: TOC by Tool
+1. VS Code Insider
+
+How to open a repo in VS Code
+
+How to commit changes
+
+How to push to GitHub
+
+How to resolve conflicts (merge UI)
+
+How to switch/create branches
+
+Extensions to install (GitHub Pull Requests, GitHub Copilot)
+
+2. GitHub Desktop
+
+How to clone a repo
+
+How to commit and push changes
+
+How to discard local changes
+
+How to rename a branch or repo (via GitHub web → Desktop auto-updates)
+
+How to delete a file and sync
+
+3. Git CLI (Command Line)
+
+Setup (git config, git init, git clone)
+
+Everyday workflow (git status, git add, git commit, git push, git pull)
+
+Branching (git branch, git checkout -b, git merge)
+
+File management (git rm, git mv)
+
+Resetting / cleaning (rm -rf .git + re-init)
+
+Troubleshooting (common errors like authentication, lock ref, etc.)
+
+4. Cross-tool actions
+
+Where repo renaming happens (always on GitHub web → reflected in Desktop & CLI with new remote URL)
+
+Where file deletions appear (push from CLI or Desktop, then visible in web/VS Code)
+
+Conflict resolution (Desktop gives warnings, VS Code allows inline merge tools, CLI gives text conflict markers)
+
+Git & GitHub: Quick Reference for Beginners through Git CLI (Command Line
+0) Install & check
+git --version
+
+
+If you don’t see a version, install Git for Windows (it includes the Git Credential Manager).
+
+1) One-time setup on your PC
+
+Set your identity for commits:
+
+git config --global user.name  "your-github-username"
+git config --global user.email "your-email@example.com"
+git config --global core.autocrlf true   # good default on Windows
+
+2) Create a GitHub account (web)
+
+Go to github.com → Sign up.
+
+Choose a username (e.g., amoorinet) and verify your email.
+
+3) Start a new repo from an existing folder (local → GitHub)
+A) Initialize Git in your project folder
+cd "C:\path\to\YourProject"
+git init
+
+B) (Optional) Add a .gitignore (common Python example)
+
+Create a file named .gitignore in your project and paste:
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+
+# VS Code
+.vscode/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+C) Stage & commit your files
+git add .
+git commit -m "Initial commit: project files"
+
+D) Create an empty repo on GitHub (web)
+
+On GitHub: New → Repository name (e.g., Python_Training) → Create.
+
+Do not add a README if you already have one locally (not required—either way works).
+
+E) Connect your local repo to GitHub & push
+git branch -M main
+git remote add origin https://github.com/<your-username>/<repo-name>.git
+git push -u origin main
+
+
+First push will open a browser to sign in (Credential Manager). Approve it.
+After that, git push/git pull won’t ask again.
+
+4) Update an existing repo (daily workflow)
+git status                   # see changes
+git add <file>               # or: git add .
+git commit -m "Describe what changed"
+git push                     # send to GitHub
+
+
+To get others’ changes (or your changes from another computer):
+
+git pull
+
+5) Clone an existing repo (GitHub → local)
+cd "C:\folder\where\you\want\it"
+git clone https://github.com/<your-username>/<repo-name>.git
+cd <repo-name>
+
+6) Rename a repository
+On GitHub (recommended)
+
+Repo page → Settings → General → Rename (e.g., trraning → Python_Training).
+
+Update your local remote (if URL changed)
+git remote -v                                # see current URLs
+git remote set-url origin https://github.com/<your-username>/<new-name>.git
+
+7) Delete a file from GitHub (keep it gone)
+From the command line
+git rm "path/to/file"
+git commit -m "Remove file"
+git push
+
+Or on GitHub (web)
+
+Open the file in the repo → trash bin icon → commit the change.
+
+Tip: If the file contains secrets and is already in history, removing it in a new commit is not enough to purge history. For real secret removal, rotate the secret and consider GitHub’s history-rewriting guidance later.
+
+8) Create & switch branches (optional but useful)
+git checkout -b feature/readme-update   # create & switch
+# (edit files)
+git add .
+git commit -m "Improve README"
+git push -u origin feature/readme-update
+
+
+Open a Pull Request on GitHub to merge into main.
+
+9) See your changes reflected on GitHub
+
+After git push, refresh your repo page.
+
+Files/commits/README will appear immediately on the Code tab.
+
+10) Common errors & quick fixes
+
+A) “Authentication failed / password not supported”
+Use the browser login via Credential Manager (default on Windows):
+
+git config --global credential.helper manager
+git push
+
+
+Sign in in the browser window that pops up.
+
+B) “cannot lock ref 'HEAD' … but expected …”
+Usually means your local HEAD changed mid-operation or VS Code wrote a commit in background.
+
+git fetch origin
+git status
+# If all good, just commit again or push.
+
+
+C) “index.lock exists” (stuck lock file)
+Only if you’re sure no Git operation is running:
+
+del .git\index.lock
+
+
+D) “fatal: bad revision 'refs/heads/main'”
+Branch doesn’t exist yet. Create it:
+
+git branch -M main
+git push -u origin main
+
+
+E) “not a git repository”
+You’re not inside a repo folder:
+
+cd "C:\path\to\YourProject"
+git status
+
+
+F) Connection reset during push (large/bad network)
+Retry:
+
+git push
+
+
+If still failing, try again later or smaller pushes.
+
+11) Minimal README template (polished)
+
+Create/edit README.md in the repo root:
+
+# Python Training
+
+Practice scripts and notes while learning Python (data types, mapping, strings, Pylint basics, and more).
+
+## What’s here
+- `data_type.py`, `mapping.py`, `bara.py`
+- `Explain file text/` — short notes (.txt)
+- `mapping/` — images for reference
+- `Pylint_Sheet.xlsx` — lint notes
+
+## How to run
+```bash
+python <scriptname>.py
+
+Credits / Attribution
+
+Some learning ideas inspired by educational resources and tutorials online.
+Special thanks to Data With Baraa for helpful explanations.
+
+
+---
+
+## 12) Quick “start over clean” (optional)
+If you ever need to reset the repo **without deleting your files**:
+```powershell
+cd "C:\path\to\YourProject"
+rmdir -Recurse -Force .git
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/<your-username>/<repo-name>.git
+git push -u origin main
+
+git clone CLI vs GitHub Desktop
+
+🔽 Clone a Repository in GitHub Desktop
+ A. Using your own PC (personal account, you are administrator)
+1.	Open GitHub Desktop
+Launch the GitHub Desktop app.
+2.	Go to Toolbar → File → Clone Repository…
+This opens the Clone dialog.
+3.	Choose the Source
+o	If the repo belongs to your GitHub.com account, it will appear under Your repositories.
+o	You can also use the URL tab and paste a repo link (e.g., https://github.com/username/repo.git).
+4.	Select the Local Path
+Browse to (or create) the folder where you want to keep the repo locally.
+👉 Note: You don’t need to “navigate your folder first” — the dialog will let you choose the location here.
+5.	Click Clone
+GitHub Desktop downloads the repository contents into your chosen local path.
+6.	Verify
+Check your local PC folder to confirm the files are cloned.
+________________________________________
+B. Using your Organization’s system (repos you access via your org)
+1.	Open GitHub Desktop
+Launch the GitHub Desktop app on your computer.
+2.	Go to Toolbar → File → Clone Repository…
+Same dialog as above.
+3.	Choose the Source
+o	From GitHub.com: You’ll see your personal account and any organizations you belong to. Repos you have permission for will appear.
+o	URL tab: Paste a repo URL (e.g., https://github.com/orgname/repo.git).
+4.	Select the Local Path
+Choose where to store the cloned repo locally.
+5.	Click Clone
+GitHub Desktop copies the repo into your machine.
+6.	Ready to Work
+You now have a local copy of your organization’s repo. Any changes you make can be committed and pushed if you have permission.
+________________________________________
+✅ Difference between Personal vs. Organization is only in step 3 (Choose Source):
+•	Personal → your own account’s repos.
+•	Organization → repos from your org’s GitHub space (visible if you’re a member)
+
+CLI VS Desktop
+
+A. Using your own PC (personal account, admin on your machine)
+GitHub Desktop steps
+1.	Open GitHub Desktop
+Launch the app.
+2.	Toolbar → File → Clone Repository…
+Opens the “Clone a repo” dialog.
+3.	Choose the Source
+o	From GitHub.com → shows your repos.
+o	Or URL tab → paste repo link (e.g., https://github.com/username/repo.git).
+4.	Select the Local Path
+Browse where you want to store the repo.
+5.	Click Clone
+Repo files are downloaded locally.
+6.	Verify
+Check the chosen folder on your PC.
+________________________________________
+CLI Equivalent
+# Step 1: Open terminal (PowerShell, CMD, Git Bash, etc.)
+# Step 2: Navigate to the folder where you want to keep the repo
+cd C:\Python\Projects   # example
+
+# Step 3: Run git clone with the repo URL
+git clone https://github.com/username/repo.git
+
+# Step 4: Move into the repo folder
+cd repo
+✅ That’s it — your repo is cloned just like GitHub Desktop does.
+________________________________________
+B. Using your Organization’s System (org repos)
+GitHub Desktop steps
+1.	Open GitHub Desktop
+Start the app.
+2.	Toolbar → File → Clone Repository…
+Same dialog.
+3.	Choose the Source
+o	From GitHub.com → lists repos from your account + your organizations.
+o	URL tab → paste org repo link (e.g., https://github.com/orgname/repo.git).
+4.	Select Local Path
+Choose destination folder.
+5.	Click Clone
+Repo is downloaded locally.
+________________________________________
+CLI Equivalent
+# Step 1: Go to a folder where you want the repo
+cd D:\OrgProjects   # example
+
+# Step 2: Clone using org repo URL
+git clone https://github.com/orgname/repo.git
+
+# Step 3: Enter the repo directory
+cd repo
+✅ Works the same, only difference is the URL points to your org repo instead of your personal one.
+________________________________________
+🔑 Quick Mapping (Desktop ↔ CLI)
+GitHub Desktop Action	CLI Equivalent Command
+File → Clone Repository…	git clone <repo-url>
+Choose local path	Run cd before cloning OR specify path
+Clone button	git clone … (executes immediately)
+Repo appears in GitHub Desktop	Folder created locally + .git initialized
+Git Clone Example  Through CLI 
+Local file need to create "C:\Python\Komeer\"
+Repository link = https://github.com/amoorinet/demo-repo1
+
+PS C:\Python\BARAA\Python_Barra\python scripts\Copilot\Python_Training> mkdir -Force  "C:\Python\Komeer\"
+
+
+    Directory: C:\Python
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         8/20/2025  11:17 AM                Komeer
+
+
+PS C:\Python\BARAA\Python_Barra\python scripts\Copilot\Python_Training> cd "C:\Python\Komeer”
+PS C:\Python\Komeer> git clone https://github.com/amoorinet/demo-repo1
+Cloning into 'demo-repo1'...
+remote: Enumerating objects: 9, done.
+remote: Counting objects: 100% (9/9), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 9 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (9/9), done.
+PS C:\Python\Komeer> cd ".\demo-repo1"
+PS C:\Python\Komeer\demo-repo1> git remote -v
+origin  https://github.com/amoorinet/demo-repo1 (fetch)
+origin  https://github.com/amoorinet/demo-repo1 (push)
+PS C:\Python\Komeer\demo-repo1> git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+PS C:\Python\Komeer\demo-repo1>git status
+
+Explain 
+
+1.	Made the parent folder only once
+2.	mkdir -Force "C:\Python\Komeer"
+3.	cd "C:\Python\Komeer"
+4.	Cloned directly into it (without pre-making a repo folder):
+5.	git clone https://github.com/amoorinet/demo-repo1
+→ This automatically created:
+C:\Python\Komeer\demo-repo1
+6.	Navigated into the repo and checked remote/origin:
+7.	cd ".\demo-repo1"
+8.	git remote -v
+9.	git status
+Everything is clean now:
+o	remote -v shows your GitHub link (repo connected ✅).
+o	git status confirms you are on main with a clean working tree.
+________________________________________
+🧠 Key Concepts You Learned
+•	cd → change directory (like “open folder”).
+•	mkdir → make new folder (only use for parent folder, not repo folder).
+•	git clone → downloads repo + creates repo folder automatically.
+•	git remote -v → shows the GitHub link (like “where it’s connected”).
+•	git status → shows repo status (clean, modified, staged, etc.).
+________________________________________
+🚀 Next Step (Your GitHub Workflow Basics)
+Here’s the “flow” you’ll mostly use:
+1.	Clone once (first time):
+2.	git clone https://github.com/amoorinet/demo-repo1
+3.	Check connection:
+4.	git remote -v
+5.	Make changes (edit files in VS Code, etc).
+6.	Stage & Commit changes:
+7.	git add .
+8.	git commit -m "Your message"
+9.	Push changes to GitHub:
+git push origin main
+
+name :
+Description
+local path
+initiatize this repo. With readme
+git ignore
+license 
+
+mkdir “C:\Python\construction_progress”
+progress
+
+
+or create a new repository on the command line
+echo "# amoorinet" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:amoorinet/amoorinet.git
+git push -u origin main
+…or push an existing repository from the command line
+git remote add origin git@github.com:amoorinet/amoorinet.git
+git branch -M main
+git push -u origin main
+
