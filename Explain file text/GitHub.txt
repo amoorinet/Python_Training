@@ -37,3 +37,7 @@ GitHub Repository Cheat Sheet
  Click Publish Branch (to push to GitHub)
  Click Pull to update from GitHub
  Command Palette → Git: Fetch (to only check updates
+
+ ✅ Quick check if you want to be 100% sure about your commit and push 
+
+git log --oneline --decorate --graph --all
