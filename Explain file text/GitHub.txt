@@ -18,7 +18,7 @@ GitHub Repository Cheat Sheet
  echo "print('hello')" > app.py
  git init
  git add .
- git commit -m "first commit"
+ git commit -m "commit all"
  git branch -M main
  gh repo create repo_name --public --source=. --remote=origin --push
  git pull # later updates
