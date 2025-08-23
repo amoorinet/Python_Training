@@ -164,3 +164,4 @@ This deep dive makes Python variables clear and practical, ensuring you use them
 above for GPT
 below from bara
 standared python library = built-in module - Functions
+

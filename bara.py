@@ -1,7 +1,8 @@
-"""Example script: converting numbers to strings using map()."""
+"""type"""
+NAME = "Aamir Ahmed"
+AGE = 30
+print(type(NAME))
+print(type(AGE))
 
-numbers = [1, 2, 3] # list
-
-result = map(str, numbers)  # Applies str() to each number
-
-# Output: ['1', '2', '3']
+# Output: <class 'str'>
+# Output: <class 'int'>
