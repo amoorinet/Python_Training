@@ -1,0 +1,78 @@
+
+Some times need Requirements before Create or activate python virtual enviroment
+# operation system is Windows 11 
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+cd "C:\Python\BARAA\Python_Barra\python scripts"
+
+# Explaination
+
+1- Execution Policy → In Windows PowerShell, this controls whether scripts are allowed to 
+run (for security).
+2- RemoteSigned → This level means:
+
+    A- Scripts written on your computer can run without restriction.
+
+    B- Scripts downloaded from the internet must be signed by a trusted publisher
+3- Scope Process → This applies only to the current PowerShell session (once you close the 
+window, it resets).
+
+# Conclusion
+
+So basically, you’re saying:
+👉 “For this PowerShell window, allow me to run my local scripts without restriction, but 
+keep some security checks for downloaded scripts.
+
+⚡ Why needed for virtual environment
+
+When you create or activate a Python virtual environment (venv), PowerShell runs a small script called Activate.ps1.
+
+By default, Windows blocks running .ps1 scripts for security.
+
+That’s why you sometimes see errors like “running scripts is disabled on this system”.
+
+To fix this temporarily, you run:
+
+Set-ExecutionPolicy RemoteSigned -Scope Process
+
+
+This tells PowerShell:
+✅ “Let me run activation scripts (Activate.ps1) just for this session.”
+
+📝 Notes
+
+You don’t always need it — only if PowerShell blocks your venv activation.
+
+It’s safe when used with -Scope Process because it applies only to your current 
+PowerShell window, not system-wide.
+
+How Create and activate virtual enviroment 
+
+1- Go to your project folder 
+
+cd "C:\Python\BARAA\Python_Barra\python scripts\Copilot\Python_Training"
+
+2- Create a virtual environment
+
+python -m venv venv
+
+    A- This creates a new folder called venv inside your project.
+    B-It contains its own Python interpreter and libraries
+     (separate from your system Python).
+
+3: Activate the virtual environment
+
+.\venv\Scripts\Activate
+After activation, you should see (venv) at the start of your prompt, like:
+
+(venv) PS C:\Python\BARAA\Python_Barra\python scripts\Copilot\Python_Training>
+
+(venv) with different color
+
+now you’re working inside your isolated Python environment
+
+4- Deactivate (when done)
+
+To go back to your global Python:
+
+deactivate
+

@@ -1,5 +1,0 @@
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
-cd "C:\Python\BARAA\Python_Barra\python scripts"
-
- python -m venv venv
-.\venv\Scripts\Activate
