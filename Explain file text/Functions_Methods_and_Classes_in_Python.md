@@ -2,7 +2,7 @@
 
 ---
 
-## 1.Functions in Python
+## 1. Functions in Python
 A **function** is a reusable block of code that performs a specific task.
 
 ### 🔑 Key Features
@@ -31,6 +31,9 @@ Follow SRP (Single Responsibility Principle).
 
 Document with docstrings:
 
+python
+Copy
+Edit
 def add(a, b):
     """Return the sum of two numbers."""
     return a + b
@@ -40,10 +43,16 @@ A module is a single .py file containing reusable code.
 Creating a Module
 math_utils.py
 
+python
+Copy
+Edit
 def square(x):
     return x ** 2
 main.py
 
+python
+Copy
+Edit
 import math_utils
 print(math_utils.square(5))   # 25
 Importing Options
@@ -54,14 +63,18 @@ import module as alias	import pandas as pd	Short name
 from module import *	from math import *	🚫 Avoid (namespace pollution)
 
 Special Variable
-
+python
+Copy
+Edit
 if __name__ == "__main__":
     print("Running directly!")
 3. Libraries (Packages)
 A library is a collection of modules (folder with __init__.py).
 
 Installing
-
+bash
+Copy
+Edit
 pip install numpy pandas
 Popular Libraries
 Library	Purpose	Example
@@ -74,14 +87,18 @@ Requests	HTTP requests	requests.get(url)
 Python has predefined functions available everywhere.
 
 Common Built-ins
-
+python
+Copy
+Edit
 print("Hello")      # Output text
 len([1,2,3])        # 3
 range(5)            # 0,1,2,3,4
 input("Name? ")     # User input
 type(10)            # <class 'int'>
 Advanced Built-ins
-
+python
+Copy
+Edit
 # map → applies a function
 print(list(map(str.upper, ["a", "b"])))   # ['A', 'B']
 
@@ -94,18 +111,24 @@ print(list(zip([1,2], ["a","b"])))   # [(1, 'a'), (2, 'b')]
 Functions
 Standalone blocks of code.
 
-
+python
+Copy
+Edit
 print(len("hello"))  # Built-in function
 Methods
 Functions belonging to objects (from classes).
 
-
+python
+Copy
+Edit
 text = "hello"
 print(text.upper())  # Method from str class
 Classes
 Blueprints to create objects.
 
-
+python
+Copy
+Edit
 class Dog:
     def bark(self):
         return "Woof!"
@@ -127,7 +150,9 @@ dict	.keys(), .values(), .items(), .get(), .update()
 int	.bit_length(), .to_bytes() (⚠️ no .upper() here)
 
 7. Example Bringing It Together
-
+python
+Copy
+Edit
 data = [10, 20, 30]
 print(len(data))      # Function → 3
 data.append(40)       # Method of list
@@ -147,5 +172,4 @@ Object → An instance of a class ("hello", [1,2,3]).
 
 Built-ins → Predefined functions available everywhere.
 
--[⬅ Back to Main README](Explain%20file%20text/README.md)
-
+[⬅ Back to Main README](../README.md)
