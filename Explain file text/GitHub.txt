@@ -1,3 +1,4 @@
+How to create new Repository and publish it on GitHub
 GitHub Repository Cheat Sheet
  1. Plain Git CLI
  mkdir -Force "C:\python\new_project"
