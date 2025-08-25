@@ -147,6 +147,5 @@ Object → An instance of a class ("hello", [1,2,3]).
 
 Built-ins → Predefined functions available everywhere.
 
-## Back to Main READM
-- [README](Explain%20file%20text/README.md)
+[⬅ Back to Main README](../README.md)
 
