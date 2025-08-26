@@ -16,7 +16,7 @@ VS Code Insiders → Ctrl+Shift+P → Git: Clone
 
 Paste your repo URL (must end with .git):
 
-https://github.com/amoorinet/trraning.git
+https://github.com/amoorinet/Python_Training.git
 
 
 Pick a local folder → when prompted, click Open.
@@ -84,7 +84,8 @@ Click Push (↑).
 
 Open in browser:
 
-https://github.com/amoorinet/trraning
+https://github.com/amoorinet/Python_Training.git
+
 
 
 You should see your files.
@@ -112,7 +113,8 @@ git init
 git add .
 git commit -m "initial commit"
 git branch -M main
-git remote add origin https://github.com/amoorinet/trraning.git
+git remote add origin https://github.com/amoorinet/Python_Training.git
+
 git push -u origin main
 
 
