@@ -1,4 +1,5 @@
 [⬅ Back to Main README](../README.md)
+
 # Pylint Warnings Cheat Sheet (Beginner-Friendly) 📑
 
 ## Common Warnings & Fixes

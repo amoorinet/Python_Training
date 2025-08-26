@@ -1,4 +1,5 @@
 [⬅ Back to Main README](../README.md)
+
 # 🔎 Deep Dive into Python's `input()` Function
 
 The `input()` function is Python's built-in method for getting user input from the command line. Let's explore it step by step.

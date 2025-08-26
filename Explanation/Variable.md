@@ -1,4 +1,5 @@
 [⬅ Back to Main README](../README.md)
+
 # Deep Dive into Python Variables with Real-World Examples
 
 Variables are fundamental in Python—they store data that can be referenced and manipulated throughout a program. Below is a comprehensive breakdown of Python variables, their behavior, and real-world applications.

@@ -1,4 +1,6 @@
-📘 How to Create a .md File and Use Markdown
+[⬅ Back to Main README](../README.md)
+
+# 📘 How to Create a .md File and Use Markdown
 1) How to Create a .md File
 Option A — VS Code / VS Code Insiders (easiest)
 
@@ -116,4 +118,3 @@ Then link them from README.md with relative links.
 
 
 
-[⬅ Back to Main README](../README.md)

@@ -1,6 +1,6 @@
 [⬅ Back to Main README](../README.md)
 
-📘 How to Create and Publish a New Repository on GitHub
+# 📘 How to Create and Publish a New Repository on GitHub
 
 This cheat sheet summarizes four methods to create a repository, commit files, push them to GitHub, and later pull or fetch updates.
 
