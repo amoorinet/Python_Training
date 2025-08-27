@@ -1,31 +1,29 @@
-flowchart LR
-    A[Working Folder] -->|git add| B[Staging Area]
-    B -->|git commit| C[Local Repository]
-    C -->|git push| D[Remote GitHub]
-    D -->|git fetch| E[Origin Branch]
-    E -->|git pull| A
+# Git Flow – One Page
 
+> Both diagrams below render on GitHub. Each diagram is in its own `mermaid` block.
+
+## 1) Local ↔ Remote (Add → Commit → Push)
+
+```mermaid
 flowchart TD
-    A[Untracked Files] -->|git add| B[Staged Changes]
-    B -->|git commit| C[Committed]
-    C -->|git push| D[On GitHub]
-    D -->|git fetch| E[Updates Available]
-    E -->|git pull| A
+    A[Your Working Folder on PC] -->|git add .| B[Staging Area (local index)]
+    B -->|git commit -m "msg"| C[Local Git Repository (history on your PC)]
+    C -->|git push| D[Remote Repository (GitHub)]
+```
 
-flowchart TB
-    subgraph Local [Local Operations]
-        direction LR
-        A[Working Directory] -->|git add| B[Staging Area]
-        B -->|git commit| C[Local Repository]
-    end
-    
-    subgraph Remote [Remote Operations]
-        direction LR
-        C -->|git push| D[GitHub]
-        D -->|git fetch| E[Remote Refs]
-        E -->|git merge| C
-    end
-    
-    A -->|git status| A
-    A -->|git diff| A
-    C -->|git log| C
+## 2) Getting Updates from GitHub (Fetch → Pull)
+
+```mermaid
+flowchart TD
+    D[Remote Repository (GitHub)] -->|git fetch| E[Remote Tracking Branch (origin/main)]
+    E -->|git pull (fetch + merge)| C[Local Git Repository + Working Folder updated]
+```
+
+---
+
+### Quick Reference
+- `git add .` → stage changes  
+- `git commit -m "msg"` → save snapshot locally  
+- `git push` → upload commits to GitHub  
+- `git fetch` → download updates without changing files  
+- `git pull` → fetch + merge (apply updates)
