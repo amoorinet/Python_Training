@@ -8,6 +8,7 @@ flowchart TD
     C -->|git push| D[Remote Repository (GitHub)]
 ```
 
+## 2) Getting Updates from GitHub (Fetch → Pull
 
 ```mermaid
 flowchart TD
