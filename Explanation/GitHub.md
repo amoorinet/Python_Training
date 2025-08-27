@@ -2,21 +2,24 @@
 
 # Explanation
 
-🔹 git add . → moves your file changes into staging.
+🔹 `git add .` → moves your file changes into staging.  
 
-🔹git commit -m "msg" → saves them into your local repo history.
+🔹 `git commit -m "msg"` → saves them into your local repo history.  
 
-🔹git push → uploads those commits to GitHub.
+🔹 `git push` → uploads those commits to GitHub.  
 
-🔹git fetch → downloads new commits from GitHub but does not touch your files yet.
+🔹 `git fetch` → downloads new commits from GitHub but does not touch your files yet.  
 
-git pull → fetch + merge → applies GitHub’s new commits to your local repo and updates your folder.
+🔹 `git pull` → fetch + merge → applies GitHub’s new commits to your local repo and updates your folder.  
 
-# ✅ Remember flow like blow:
+---
 
-add → commit → push = go upwards (PC → GitHub).
+# ✅ Remember flow like below:
 
-fetch → pull = go downwards (GitHub → PC).
+- `add → commit → push` = go **upwards** (PC → GitHub).  
+- `fetch → pull` = go **downwards** (GitHub → PC).  
+
+---
 
 # 🔹 Git Flow Diagram (Local ↔ Remote)
 
@@ -25,25 +28,26 @@ flowchart TD
     A[Your Working Folder on PC] -->|git add .| B[Staging Area (local index)]
     B -->|git commit -m "msg"| C[Local Git Repository (history on your PC)]
     C -->|git push| D[Remote Repository (GitHub)]
+🔹 Getting Updates from GitHub
 
-
-
-```markdown
-# 🔹 Getting Updates from GitHub
-
-```mermaid
 flowchart TD
     D[Remote Repository (GitHub)] -->|git fetch| E[Remote Tracking Branch (origin/main)]
     E -->|git pull (fetch + merge)| C[Local Git Repository + Working Folder updated]
+🔍 Key Notes
+Each mermaid diagram must be in its own fenced block.
 
+Don’t put two flowchart TD diagrams inside one block.
 
+GitHub renders Mermaid only when each block is properly closed with ```.
+
+🎯 How to Test
+Save this into git-flow.md.
+
+Commit + push.
+
+Open it in GitHub → diagrams should render .
 
 ---
-
-✅ Notes:  
-- This uses **Mermaid diagrams**, which VS Code + GitHub can render in Markdown.  
-- If you open the `.md` file in GitHub (or in VS Code with Mermaid preview extension), you’ll see real flow diagrams instead of just text.  
-
 
 # 📘 How to Create and Publish a New Repository on GitHub
 
