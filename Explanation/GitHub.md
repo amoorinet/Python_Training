@@ -20,36 +20,29 @@ fetch → pull = go downwards (GitHub → PC).
 
 # 🔹 Git Flow Diagram (Local ↔ Remote)
 
-   [Your Working Folder on PC]      
-              │
-              │ edit files
-              ▼
-       git add .    
-              │ (stage changes)
-              ▼
-   [Staging Area (local index)]
-              │
-              │ git commit -m "message"
-              ▼
-   [Local Git Repository (history on your PC)]
-              │
-              │ git push
-              ▼
-   [Remote Repository (GitHub)]
+```mermaid
+flowchart TD
+    A[Your Working Folder on PC] -->|git add .| B[Staging Area (local index)]
+    B -->|git commit -m "msg"| C[Local Git Repository (history on your PC)]
+    C -->|git push| D[Remote Repository (GitHub)]
 
-# 🔹 Getting updates from GitHub
 
-   [Remote Repository (GitHub)]
-              │
-              │ git fetch
-              ▼
-   [Remote tracking branch on PC]  
-   (origin/main, origin/dev, etc.)  
-              │ (just downloaded, not merged)
-              │
-              │ git pull = fetch + merge
-              ▼
-   [Local Git Repository + Working Folder updated]
+
+```markdown
+# 🔹 Getting Updates from GitHub
+
+```mermaid
+flowchart TD
+    D[Remote Repository (GitHub)] -->|git fetch| E[Remote Tracking Branch (origin/main)]
+    E -->|git pull (fetch + merge)| C[Local Git Repository + Working Folder updated]
+
+
+
+---
+
+✅ Notes:  
+- This uses **Mermaid diagrams**, which VS Code + GitHub can render in Markdown.  
+- If you open the `.md` file in GitHub (or in VS Code with Mermaid preview extension), you’ll see real flow diagrams instead of just text.  
 
 
 # 📘 How to Create and Publish a New Repository on GitHub
