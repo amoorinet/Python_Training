@@ -18,35 +18,6 @@
 - `add → commit → push` = go **upwards** (PC → GitHub)  
 - `fetch → pull` = go **downwards** (GitHub → PC)
 
----
-
-# 🔹 Git Flow Diagram (Local ↔ Remote, Getting Updates from GitHub)
-
-```mermaid
-
-flowchart LR
-  %% Grouping for clarity
-  subgraph Local_PC[Local PC]
-    A[Working Folder]
-    B[Staging Area]
-    C[Local Repository]
-    E[Remote Tracking Branch<br>origin/main]
-  end
-
-  subgraph Remote[GitHub Remote]
-    D[Remote Repository]
-  end
-
-  %% Upwards: create & publish
-  A -- git add --> B
-  B -- git commit --> C
-  C -- git push --> D
-
-  %% Downwards: preview & update
-  D -- git fetch --> E
-  E -- git pull<br>merge/rebase --> C
-  C -- checkout --> A
-
 
 # 📘 Create & Publish a New Repository on GitHub
 
@@ -179,4 +150,33 @@ git status
 - **Commit**: A saved snapshot in Git history.  
 - **Remote**: The GitHub copy of your repository.  
 - **Branch**: A line of development (e.g., `main`, `dev`).
+
+---
+
+# 🔹 Git Flow Diagram (Local ↔ Remote, Getting Updates from GitHub)
+
+```mermaid
+
+flowchart LR
+  %% Grouping for clarity
+  subgraph Local_PC[Local PC]
+    A[Working Folder]
+    B[Staging Area]
+    C[Local Repository]
+    E[Remote Tracking Branch<br>origin/main]
+  end
+
+  subgraph Remote[GitHub Remote]
+    D[Remote Repository]
+  end
+
+  %% Upwards: create & publish
+  A -- git add --> B
+  B -- git commit --> C
+  C -- git push --> D
+
+  %% Downwards: preview & update
+  D -- git fetch --> E
+  E -- git pull<br>merge/rebase --> C
+  C -- checkout --> A
 
