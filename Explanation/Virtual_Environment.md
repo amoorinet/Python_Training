@@ -8,6 +8,7 @@
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 cd "C:\Python\BARAA\Python_Barra\python scripts"
+
 Explanation
 Execution Policy → In Windows PowerShell, this controls whether scripts are allowed to run (for security)
 

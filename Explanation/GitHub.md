@@ -8,7 +8,7 @@ This cheat sheet summarizes four methods to create a repository, commit files, p
 # Create new project folder
 mkdir -Force "C:\python\new_project"
 cd "C:\python\new_project"
-
+or navigate to any exist Folder in your local PC 
 # Initialize project
 echo "# my-project" > README.md
 git init
