@@ -20,19 +20,32 @@
 
 ---
 
-# 🔹 Git Flow Diagram (Local ↔ Remote)
+# 🔹 Git Flow Diagram (Local ↔ Remote, Getting Updates from GitHub)
 
 ```mermaid
-flowchart TD
-    A[Your Working Folder on PC] -->|git add .| B[Staging Area (local index)]
-    B -->|git commit -m "msg"| C[Local Git Repository (history on your PC)]
-    C -->|git push| D[Remote Repository (GitHub)]
-🔹 Getting Updates from GitHub
 
-flowchart TD
-    D[Remote Repository (GitHub)] -->|git fetch| E[Remote Tracking Branch (origin/main)]
-    E -->|git pull (fetch + merge)| C[Local Git Repository + Working Folder updated]
+flowchart LR
+  %% Grouping for clarity
+  subgraph Local_PC[Local PC]
+    A[Working Folder]
+    B[Staging Area]
+    C[Local Repository]
+    E[Remote Tracking Branch<br>origin/main]
+  end
 
+  subgraph Remote[GitHub Remote]
+    D[Remote Repository]
+  end
+
+  %% Upwards: create & publish
+  A -- git add --> B
+  B -- git commit --> C
+  C -- git push --> D
+
+  %% Downwards: preview & update
+  D -- git fetch --> E
+  E -- git pull<br>merge/rebase --> C
+  C -- checkout --> A
 
 
 # 📘 Create & Publish a New Repository on GitHub
