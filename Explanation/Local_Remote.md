@@ -1,17 +1,16 @@
-flowchart TB
-    subgraph Local [Local Operations]
-        direction LR
-        K[Working Directory] -->|git add| L[Staging Area]
-        L -->|git commit| M[Local Repository]
-    end
-    
-    subgraph Remote [Remote Operations]
-        direction LR
-        M -->|git push| N[GitHub]
-        N -->|git fetch| O[Remote Refs]
-        O -->|git merge| M
-    end
-    
-    K -->|git status| K
-    K -->|git diff| K
-    M -->|git log| M
+## 1) Local ↔ Remote (Add → Commit → Push)
+
+
+```mermaid
+flowchart TD
+    A[Your Working Folder on PC] -->|git add .| B[Staging Area (local index)]
+    B -->|git commit -m "msg"| C[Local Git Repository (history on your PC)]
+    C -->|git push| D[Remote Repository (GitHub)]
+```
+
+
+```mermaid
+flowchart TD
+    D[Remote Repository (GitHub)] -->|git fetch| E[Remote Tracking Branch (origin/main)]
+    E -->|git pull (fetch + merge)| C[Local Git Repository + Working Folder updated]
+```
