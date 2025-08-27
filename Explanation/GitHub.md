@@ -20,7 +20,7 @@
 
 ---
 
-## 🔹 Git Flow Diagram (Local ↔ Remote)
+# 🔹 Git Flow Diagram (Local ↔ Remote)
 
 ```mermaid
 flowchart TD
@@ -29,25 +29,13 @@ flowchart TD
     C -->|git push| D[Remote Repository (GitHub)]
 ```
 
-## 🔹 Getting Updates from GitHub
+# 🔹 Getting Updates from GitHub
 
 ```mermaid
 flowchart TD
     D[Remote Repository (GitHub)] -->|git fetch| E[Remote Tracking Branch (origin/main)]
     E -->|git pull (fetch + merge)| C[Local Git Repository + Working Folder updated]
 ```
-
-> **Notes**
-> 1) Each Mermaid diagram must be in its own fenced code block.  
-> 2) Don’t put two `flowchart TD` diagrams inside one block.  
-> 3) On GitHub, Mermaid renders automatically when blocks are closed cleanly with triple backticks.
-
----
-
-## 🎯 How to Test
-1. Save this file (e.g., `git-flow.md`).  
-2. Commit + push.  
-3. Open the file on GitHub → the diagrams should render with **no errors**.
 
 ---
 
@@ -81,8 +69,6 @@ git push -u origin main
 git pull origin main    # bring latest updates into your local branch
 git fetch origin        # check/download updates without merging
 ```
-
-> **Tip:** Replace `USERNAME/REPO.git` with your real GitHub path.
 
 ---
 
