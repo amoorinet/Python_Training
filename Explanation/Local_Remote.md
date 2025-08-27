@@ -1,16 +1,15 @@
-# Git Flow – Big Picture (One Diagram)
-
 ```mermaid
+
 flowchart LR
-  %% Groups (optional)
+  %% Grouping for clarity
   subgraph Local_PC[Local PC]
     A[Working Folder]
     B[Staging Area]
     C[Local Repository]
-    E[Remote Tracking Branch (origin/main)]
+    E[Remote Tracking Branch<br>origin/main]
   end
 
-  subgraph Remote[GitHub (Remote)]
+  subgraph Remote[GitHub Remote]
     D[Remote Repository]
   end
 
@@ -21,5 +20,5 @@ flowchart LR
 
   %% Downwards: preview & update
   D -- git fetch --> E
-  E -- git pull (merge/rebase) --> C
+  E -- git pull<br>merge/rebase --> C
   C -- checkout --> A
