@@ -106,6 +106,6 @@ Notes / Alerts (GitHub flavored)
 💡 Tip: Use .gitignore to avoid pushing venv files.
 ⚠️ Warning: Don’t commit secrets like API keys.
 
-✅ Keep this handy: With just these, you can document projects professionally on GitHub.
+✅ Keep this handy: With just these, you can document projects professionally on GitHub...
 
 

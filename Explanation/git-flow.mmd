@@ -1,7 +1,0 @@
-flowchart LR
-  A[Working Folder] -->|git add| B[Staging Area]
-  B -->|git commit| C[Local Repository]
-  C -->|git push| D[Remote Repository (GitHub)]
-  D -->|git fetch| E[Remote Tracking Branch (origin/main)]
-  E -->|git pull (merge/rebase)| C
-  C -->|checkout| A
